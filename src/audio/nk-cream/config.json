@@ -122,6 +122,9 @@
     "61008": "v.wav",
     "61009": "m.wav",
     "61010": "h.wav",
-    "61011": "b.wav"
+    "61011": "b.wav",
+    "click": "click.wav",
+    "clickdown": "click-down.wav",
+    "clickup": "click-up.wav"
   }
 }

@@ -261,6 +261,18 @@ function packsToOptions(packs, pack_list) {
       }
     });
 
+    // added click sound
+    // iohook.on('mouseclick', () => {
+    //   playSound('keycode-click', store.get(MV_VOL_LSID));
+    // });
+
+    // added click sound
+    iohook.on('mousedown', () => {
+      playSound('keycode-clickdown', Number(store.get(MV_VOL_LSID)) / 3);
+    });
+    iohook.on('mouseup', () => {
+      playSound('keycode-clickup', Number(store.get(MV_VOL_LSID)) / 3);
+    });
     // if key released, clear current key
     iohook.on('keyup', () => {
       current_key_down = null;
@@ -273,7 +285,6 @@ function packsToOptions(packs, pack_list) {
       if (current_key_down != null && current_key_down == keycode) {
         return;
       }
-
       // display current pressed key
       // app_logo.innerHTML = keycode;
       app_logo.classList.add('pressed');
@@ -283,6 +294,8 @@ function packsToOptions(packs, pack_list) {
 
       // pack sprite id
       const sound_id = `keycode-${current_key_down}`;
+
+      console.log(sound_id);
 
       // get loaded audio object
       // if object valid, pack volume and play sound
